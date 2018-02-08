@@ -19,3 +19,5 @@ testdata = [random.randint(0, 2) for x in range(49)]
 nn = NEURALNET()
 outcome = nn.feed(testdata)
 print(outcome)
+
+# klappt das?
