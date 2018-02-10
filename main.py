@@ -3,21 +3,29 @@ from math import exp
 
 # create matrix of size f*s, initialized with randomFloat() entries
 # with f, s sizes of first and second layer
+
+
 def createRandomWeights(firstlayer, secondlayer):
     return [[randomFloat() for x in range(firstlayer.size)]
             for y in range(secondlayer.size)]
 
 # normalize x to be a value between 0 and 1
+
+
 def normalize(x):
     return -1 + 2 / (1 + exp(- x)) if x > 0 else 0
 
 # create a random float number between -5 and 5
+
+
 def randomFloat(lower=-5, upper=5):
     return random.uniform(lower, upper)
 
 # layer class, input size
 # creates value list of that size
 # creates bias list of that size, initialized with randomFloat() entries
+
+
 class LAYER():
     def __init__(self, size):
         self.size = size
@@ -31,11 +39,13 @@ class LAYER():
         for i in range(self.size):
             current = 0
             for j in range(incomingLayer.size):
-                current += incomingLayer.values[j]*weightMatrix[i][j]
-            self.values[i] = normalize(self.biases[i]+current)
+                current += incomingLayer.values[j] * weightMatrix[i][j]
+            self.values[i] = normalize(self.biases[i] + current)
 
 # neural net class
 # initializes 5 layers, creates the random weights between them
+
+
 class NEURALNET():
 
     def __init__(self):
@@ -53,7 +63,6 @@ class NEURALNET():
         self.h2_h3_weights = createRandomWeights(self.hidden2, self.hidden3)
         self.h3_out_weights = createRandomWeights(
             self.hidden3, self.outputlayer)
-
 
     # feeds incoming data through the net, calculating the values of the
     # following layer and ultimately giving the index of the output
