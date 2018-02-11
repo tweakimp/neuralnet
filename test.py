@@ -15,9 +15,11 @@ def stopwatch(f):
 
 
 random.seed(1)
-testdata = [random.randint(0, 2) for x in range(49)]
-nn = NEURALNET()
-outcome = nn.feed(testdata)
-print(outcome)
-
-# klappt das?
+@stopwatch
+def testrun():
+    for _ in range(1000):
+        testdata = [random.randint(0, 2) for x in range(49)]
+        nn = NEURALNET()
+        outcome = nn.feed(testdata)
+# print(outcome)
+testrun()
